@@ -10,7 +10,7 @@ export default class ColorDisplay extends Component {
         }
     }
     render() {
-        console.log(this.state.colors)
+        
         const mappedColors= this.state.colors.map((color, i)=>{
            return <Color color={color.color} key={i}/>
         })
