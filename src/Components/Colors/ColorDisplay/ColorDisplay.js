@@ -1,13 +1,26 @@
 import React, { Component } from 'react'
 import Color from '../Color/Color';
 import styled from 'styled-components'
+import axios from 'axios'
 
 export default class ColorDisplay extends Component {
     constructor(){
         super()
         this.state={
-            colors: [{color: '#F9CB40'}, {color: '#BCED09'}, {color: '#2F52E0'}, {color: '#FF715B'}]
+            colors: []
         }
+    }
+
+    componentDidMount=()=>{
+        axios.get('/api/colors')
+        .then((res)=>{
+            this.setState({
+                colors: res.data
+            })
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
     }
     render() {
         
